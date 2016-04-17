@@ -20,10 +20,10 @@ public class FilmDao extends GeneralDao {
 
 	private static transient Logger LOG = LoggerFactory.getLogger(FilmDao.class);
 
-	public Film load(final Long id) {
+	public Film load(final int id) {
 		return getHibernateTemplate().execute(new HibernateCallback<Film>() {
 			public Film doInHibernate(Session session) throws HibernateException, SQLException {
-				Query query = session.createQuery("from Film f where f.film_id = :id");
+				Query query = session.createQuery("from Film f where f.filmId = :id");
 				query.setParameter("id", id);
 				Film film = (Film) query.uniqueResult();
 				return film;
@@ -54,7 +54,7 @@ public class FilmDao extends GeneralDao {
 	}
 
 		
-	public void remove(Long id, String modifiedBy) {
+	public void remove(int id, String modifiedBy) {
 		Film film = load(id);
 		
 		getHibernateTemplate().delete(film);

@@ -59,4 +59,12 @@ public class FilmServiceTest {
 		System.out.println("New film added with ID: " + newFilm.getFilmId());
 	}
 	
+	@Test
+	public void load(){
+		Film film = filmDao.load(1001);
+		Assert.assertNotNull(film);
+		
+		System.out.println(film);
+	}
+	
 }
