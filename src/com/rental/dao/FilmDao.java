@@ -43,7 +43,8 @@ public class FilmDao extends GeneralDao {
 	};
 	
 	public void saveOrUpdate(final Film film) {
-		getHibernateTemplate().execute(new HibernateCallback<Boolean>() {@Override
+		getHibernateTemplate().execute(new HibernateCallback<Boolean>() {
+			@Override
 		public Boolean doInHibernate(Session session) throws HibernateException,
 				SQLException {
 			session.saveOrUpdate(film);

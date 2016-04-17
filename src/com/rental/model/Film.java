@@ -1,8 +1,11 @@
 package com.rental.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.List;
@@ -169,6 +172,9 @@ public class Film extends Base implements Serializable {
 	//bi-directional many-to-one association to FilmActor
 	@OneToMany(mappedBy="film")
 	public List<FilmActor> getFilmActors() {
+		if(this.filmActors==null){
+			this.filmActors = new ArrayList<FilmActor>();
+		}
 		return this.filmActors;
 	}
 

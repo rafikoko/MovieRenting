@@ -13,6 +13,13 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Actor.findAll", query="SELECT a FROM Actor a")
 public class Actor extends Base implements Serializable {
+	@Override
+	public String toString() {
+		return "Actor [actorId=" + actorId + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", lastUpdate=" + lastUpdate
+				+ ", filmActors=" + filmActors + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 	private int actorId;
 	private String firstName;
