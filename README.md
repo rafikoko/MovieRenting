@@ -1,0 +1,1 @@
+A sample application showing how to connect using Spring and Hibernate to sample MySql database called 'movie renting'
